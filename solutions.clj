@@ -30,3 +30,13 @@
 
 ; Reverse a Sequence
 ; http://www.4clojure.com/problem/23
+; restrictions: reverse, rseq
+(fn [coll] (reduce conj '() coll))
+
+; Sum It All Up
+; http://www.4clojure.com/problem/24
+(fn [coll] (reduce + coll))
+
+; Find the odd numbers
+; http://www.4clojure.com/problem/25
+(fn [coll] (filter odd? coll))
