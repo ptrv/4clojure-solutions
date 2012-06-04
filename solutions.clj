@@ -40,3 +40,12 @@
 ; Find the odd numbers
 ; http://www.4clojure.com/problem/25
 (fn [coll] (filter odd? coll))
+
+;; Fobinacci Sequence
+;; http://www.4clojure.com/problem/25
+(fn [n]
+  (letfn [(fib [i]
+            (if (>= 2 i)
+              1
+              (+ (fib (dec i)) (fib (- i 2)))))]
+    (map fib (take n (iterate #(inc %) 1)))))
