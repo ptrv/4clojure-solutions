@@ -42,10 +42,29 @@
 (fn [coll] (filter odd? coll))
 
 ;; Fobinacci Sequence
-;; http://www.4clojure.com/problem/25
+;; http://www.4clojure.com/problem/26
 (fn [n]
   (letfn [(fib [i]
             (if (>= 2 i)
               1
               (+ (fib (dec i)) (fib (- i 2)))))]
     (map fib (take n (iterate #(inc %) 1)))))
+
+;; Palindrome Detector
+;; http://www.4clojure.com/problem/27
+(fn [x] (= (seq x) (reverse x)))
+
+;; Flatten a sequence
+;; http://www.4clojure.com/problem/28
+(fn [coll]
+  (seq
+   (reduce
+    (fn my-flatten [v e]
+      (if (coll? e)
+        (reduce my-flatten v e)
+        (conj v e)))
+    [] coll)))
+
+;; Get the Caps
+;; http://www.4clojure.com/problem/29
+(fn [s] (apply str (re-seq #"[A-Z]+" s)))
