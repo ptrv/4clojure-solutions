@@ -68,3 +68,42 @@
 ;; Get the Caps
 ;; http://www.4clojure.com/problem/29
 (fn [s] (apply str (re-seq #"[A-Z]+" s)))
+
+;; Compress a Sequence
+;; http://www.4clojure.com/problem/30
+(fn [coll] (map first (partition-by identity coll)))
+
+;; Pack a Sequence
+;; http://www.4clojure.com/problem/31
+(fn [coll] (partition-by identity coll))
+
+;; Duplicate a Sequence
+;; http://www.4clojure.com/problem/32
+(fn [coll]
+  (reverse
+   (reduce #(cons %2 (cons %2 %1)) '() coll)))
+
+;; Replicate a Sequence
+;; http://www.4clojure.com/problem/33
+(fn [coll n] (mapcat #(concat (repeat n %)) coll))
+
+;; Implement range
+;; http://www.4clojure.com/problem/34
+(fn [start end] (take (- end start) (iterate inc start)))
+
+;; Let it Be
+;; http://www.4clojure.com/problem/36
+[x 7 y 3 z 1]
+
+;; Regular Expressions
+;; http://www.4clojure.com/problem/37
+"ABC"
+
+;; Maximum value
+;; http://www.4clojure.com/problem/38
+;; restrictions: max, max-key
+(fn mymax
+  ([x y]
+     (if (> x y) x y))
+  ([x y & more]
+     (reduce mymax (mymax x y) more)))
