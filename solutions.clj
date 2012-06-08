@@ -107,3 +107,32 @@
      (if (> x y) x y))
   ([x y & more]
      (reduce mymax (mymax x y) more)))
+
+;; A nil key
+;; http://www.4clojure.com/problem/134
+(fn nil-val? [k m]
+  (and (contains? m k) (nil? (m k))))
+
+;; For the win
+;; http://www.4clojure.com/problem/145
+(range 1 40 4)
+
+;; Map defaults
+;; http://www.4clojure.com/problem/156
+(fn [v m] (zipmap m (repeat v)))
+
+;; Comparison
+;; http://www.4clojure.com/problem/166
+(fn [op a b]
+  (cond
+   (op a b) :lt
+   (op b a) :gt
+   :else :eq))
+
+;; Intro to iterate
+;; http://www.4clojure.com/problem/45
+(range 1 15 3)
+
+;; Factorial fun
+;; http://www.4clojure.com/problem/42
+(fn [n] (reduce * (range 1 (inc n))))
