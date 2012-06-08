@@ -136,3 +136,25 @@
 ;; Factorial fun
 ;; http://www.4clojure.com/problem/42
 (fn [n] (reduce * (range 1 (inc n))))
+
+;; Interleave Two Seqs
+;; http://www.4clojure.com/problem/39
+;; resetrictions: interleave
+(fn [a b]
+  (mapcat #(conj [] %1 %2) a b))
+
+;; Interpose a Seq
+;; http://www.4clojure.com/problem/40
+(fn [sep coll]
+  (drop-last
+   (mapcat #(conj [] % sep) coll)))
+
+;; Drop Every Nth Element
+;; http://www.4clojure.com/problem/41
+(fn [coll n]
+  (mapcat #(take (dec n) %) (partition-all n coll)))
+
+;; Reverse Interleave
+;; http://www.4clojure.com/problem/43
+(fn [coll n]
+  (apply map list (partition n coll)))
