@@ -158,3 +158,30 @@
 ;; http://www.4clojure.com/problem/43
 (fn [coll n]
   (apply map list (partition n coll)))
+
+;; Intro into Destructuring
+;; http://www.4clojure.com/problem/52
+(list c e)
+[c e]
+
+;; Advanced Destructuring
+;; http://www.4clojure.com/problem/51
+(list 1 2 3 4 5)
+
+;; A Half-Truth
+;; http://www.4clojure.com/problem/83
+(fn [& vars]
+  (cond
+   (every? true? vars) false
+   (some true? vars) true
+   :else false))
+
+;; Split a Sequence
+;; http://www.4clojure.com/problem/49
+(fn [n coll]
+  [(take n coll)(drop n coll)])
+
+;; Map Construction
+;; http://www.4clojure.com/problem/61
+;; restrictions: zipmap
+(fn [a b] (apply assoc {} (interleave a b)))
