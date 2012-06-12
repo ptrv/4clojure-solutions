@@ -190,3 +190,14 @@
 ;; http://www.4clojure.com/problem/99
 (fn [x y]
   (map #(- (int %) (int \0)) (str (* x y))))
+
+;; Re-Implement Iterate
+;; http://www.4clojure.com/problem/62
+;; restrictions: iterate
+(fn iter [f x]
+  (cons x (lazy-seq (iter f (f x)))))
+
+;; Read a binary number
+;; http://www.4clojure.com/problem/122
+(fn [s]
+  (Integer/parseInt s 2))
