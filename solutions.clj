@@ -185,3 +185,8 @@
 ;; http://www.4clojure.com/problem/61
 ;; restrictions: zipmap
 (fn [a b] (apply assoc {} (interleave a b)))
+
+;; Product Digits
+;; http://www.4clojure.com/problem/99
+(fn [x y]
+  (map #(- (int %) (int \0)) (str (* x y))))
